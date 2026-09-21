@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-void: #06080C;
+    --color-surface: #0B101B;
+    --color-cyan: #00F0FF;
+    --color-alert: #FF3B30;
+    --color-safe: #00E599;
+    --color-warning: #F59E0B;
+    --color-intel: #8B5CF6;
+  }
+
+  body {
+    background-color: #06080C;
+    color: #F1F5F9;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Tactical Background Grid and Vignettes */
+.bg-tactical-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-radial-vignette {
+  background: radial-gradient(circle at 50% 10%, rgba(0, 240, 255, 0.06) 0%, transparent 65%),
+              radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.04) 0%, transparent 50%),
+              radial-gradient(circle at 10% 90%, rgba(255, 59, 48, 0.04) 0%, transparent 50%);
+}
+
+.bg-emergency-vignette {
+  background: radial-gradient(circle at 50% 0%, rgba(255, 59, 48, 0.22) 0%, transparent 70%),
+              radial-gradient(circle at 50% 100%, rgba(255, 59, 48, 0.12) 0%, transparent 60%);
+}
+
+/* Glass Panels */
+.glass-panel {
+  background: rgba(11, 16, 27, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-cyan {
+  background: rgba(11, 16, 27, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  box-shadow: 0 0 24px -6px rgba(0, 240, 255, 0.15);
+}
+
+.glass-panel-alert {
+  background: rgba(26, 12, 16, 0.88);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 59, 48, 0.45);
+  box-shadow: 0 0 35px -5px rgba(255, 59, 48, 0.3);
+}
+
+.glass-panel-safe {
+  background: rgba(8, 24, 18, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 229, 153, 0.3);
+  box-shadow: 0 0 24px -6px rgba(0, 229, 153, 0.15);
+}
+
+/* Futuristic Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #06080C;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.5);
+}
+
+/* Leaflet Dark Mission-Control Overrides */
+.leaflet-container {
+  background: #06080C !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.leaflet-tile {
+  filter: brightness(0.7) invert(1) contrast(3) hue-rotate(180deg) saturate(0.3) brightness(0.65) !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: rgba(11, 16, 27, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(0, 240, 255, 0.3) !important;
+  color: #F1F5F9 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 240, 255, 0.2) !important;
+  padding: 4px !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(11, 16, 27, 0.95) !important;
+  border: 1px solid rgba(0, 240, 255, 0.3) !important;
+}
+
+.leaflet-popup-content {
+  margin: 10px 14px !important;
+  line-height: 1.4 !important;
+}
