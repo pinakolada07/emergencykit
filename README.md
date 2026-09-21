@@ -1,4 +1,4 @@
-# 🚨 LIFELINE — Personal Emergency Command Center
+# 🚨 LIFELINE — Personal Emergency Command Center 
 
 > *"When every second matters, everything you need should be in one place."*
 
