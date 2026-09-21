@@ -212,7 +212,7 @@ export const OverviewDashboard: React.FC = () => {
               Alert Contact
             </h4>
             <p className="text-[11px] text-slate-400 mt-1 leading-snug">
-              Ping primary contact Alex Rivera
+              Ping {contacts[0]?.name?.split(' ')[0] || 'primary'} contact instantly
             </p>
           </div>
 

@@ -22,7 +22,6 @@ import { soundManager } from '../../utils/audio';
 export const AIAssistant: React.FC = () => {
   const { 
     setEmergencyModalOpen, 
-    triggerEmergency, 
     addNotification 
   } = useEmergency();
 

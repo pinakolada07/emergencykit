@@ -38,7 +38,7 @@ export const LiveMap: React.FC<{ isWidget?: boolean }> = ({ isWidget = false }) 
   const [activeFilter, setActiveFilter] = useState<'all' | FacilityType | 'incidents'>('all');
   const [showDrawer, setShowDrawer] = useState(false);
 
-  const userCoords: [number, number] = [19.0760, 72.8777];
+  const userCoords = React.useMemo<[number, number]>(() => [19.0760, 72.8777], []);
 
   // Initialize Map
   useEffect(() => {
@@ -118,6 +118,9 @@ export const LiveMap: React.FC<{ isWidget?: boolean }> = ({ isWidget = false }) 
       } else if (facility.type === 'pharmacy') {
         iconColor = '#00E599';
         symbol = '💊';
+      } else if (facility.type === 'safe_zone') {
+        iconColor = '#A78BFA';
+        symbol = '🛖';
       }
 
       const facilityIcon = L.divIcon({
@@ -202,7 +205,7 @@ export const LiveMap: React.FC<{ isWidget?: boolean }> = ({ isWidget = false }) 
         incMarker.addTo(layer);
       });
     }
-  }, [facilities, incidents, activeFilter, setSelectedFacility]);
+  }, [facilities, incidents, activeFilter, userCoords, setSelectedFacility]);
 
   // Controls
   const handleLocateMe = () => {

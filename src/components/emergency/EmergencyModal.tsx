@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   AlertOctagon, 
   X, 
@@ -30,9 +30,15 @@ export const EmergencyModal: React.FC = () => {
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
   const [selectedCategory, setSelectedCategory] = useState<EmergencyCategory>('accident');
   const [locationName, setLocationName] = useState('Mumbai Metro Corridor, Sector 4');
-  const [selectedContactIds, setSelectedContactIds] = useState<string[]>(
-    contacts.map(c => c.id)
-  );
+  const [selectedContactIds, setSelectedContactIds] = useState<string[]>([]);
+
+  // Sync contact selection whenever modal opens or contacts list changes
+  useEffect(() => {
+    if (emergencyModalOpen) {
+      setSelectedContactIds(contacts.map(c => c.id));
+      setStep(1);
+    }
+  }, [emergencyModalOpen, contacts]);
 
   if (!emergencyModalOpen) return null;
 
